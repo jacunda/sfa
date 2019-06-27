@@ -1,0 +1,57 @@
+from django.db import models
+
+# Create your models here.
+
+class Empresa(models.Model):
+
+    papel = models.CharField(max_length=30,null=True, blank=True)
+    cotacao = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    tipo = models.CharField(max_length=30,null=True, blank=True)
+    data = models.CharField(max_length=30,null=True, blank=True)
+    empresa = models.CharField(max_length=30,null=True, blank=True)
+    min52 = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    setor = models.CharField(max_length=30,null=True, blank=True)
+    max52 = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    subsetor = models.CharField(max_length=30,null=True, blank=True)
+    volume = models.BigIntegerField(default=0,null=True, blank=True)
+    
+    valor_de_mercado = models.BigIntegerField(default=0,null=True, blank=True)
+    ultimo_balanco = models.CharField(max_length=30,null=True, blank=True)
+    valor_firma = models.BigIntegerField(default=0,null=True, blank=True)
+    num_acoes = models.BigIntegerField(default=0,null=True, blank=True)
+    PL = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PVP = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PEBIT = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PSR = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PAtivos = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PCap_Giro = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    PAtivCircLiq = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    dividend_yield = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    ev_ebit = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    giro_ativos = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    crescimento_receita5 = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    LPA = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    VPA = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    marg_bruta = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    marg_EBIT = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    marg_liquida = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    EBIT_ATIVO = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    ROIC = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    ROE = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    liquidez_corr = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+    diBrPat = models.DecimalField(default=0.0, max_digits=30, decimal_places=3,null=True, blank=True)
+
+    ativo = models.BigIntegerField(default=0,null=True, blank=True)
+    disponibilidades =  models.BigIntegerField(default=0,null=True, blank=True)
+    ativo_circulante =  models.BigIntegerField(default=0,null=True, blank=True)
+    div_bruta = models.BigIntegerField(default=0,null=True, blank=True)
+    div_liquida = models.BigIntegerField(default=0,null=True, blank=True)
+    patrim_liq = models.BigIntegerField(default=0,null=True, blank=True)
+    
+    receita_liq12 = models.BigIntegerField(default=0,null=True, blank=True)
+    EBIT12 = models.BigIntegerField(default=0,null=True, blank=True)
+    Lucro_liq12 = models.BigIntegerField(default=0,null=True, blank=True)
+    receita_liq3 = models.BigIntegerField(default=0,null=True, blank=True)
+    EBIT3 = models.BigIntegerField(default=0,null=True, blank=True)
+    lucro_liq3 = models.BigIntegerField(default=0,null=True, blank=True)
+

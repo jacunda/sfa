@@ -1,0 +1,94 @@
+{% extends 'filtro_template_main.html' %}
+
+{% block body %}
+
+{% if dados %}
+<h2>Papéis</h2>
+<br><br>
+<ul>
+    {% for d in dados %}
+    <li>
+        <div class="card_config card">
+            <div class="card-header">
+                <h3>{{ d.empresa }} - {{ d.papel }}</h3>
+
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td> <b> LPA :</b> {{ d.LPA }} </td>
+                        <td> <b> Crescimento Rec. 5 anos :</b> {{ d.crescimento_receita5 }} </td>
+                        <td> <b> EBIT (12 meses):</b> {{ d.EBIT12 }} </td>
+                    </tr>
+                    <tr>
+                        <td> <b> P/L:</b> {{ d.PL }} </td>
+                        <td> <b> Patrimônio Líquido:</b> {{ d.patrim_liq }} </td>
+                        <td> <b> Lucro Líquido (12 Meses):</b> {{ d.Lucro_liq12 }} </td>
+                    </tr>
+                    <tr>
+                        <td> <b> P/VP :</b> {{ d.PVP }} </td>
+                        <td> <b> Dívida Bruta :</b> {{ d.div_bruta }} </td>
+                        <td> <b> Receita Líquida (3 meses) :</b> {{ d.receita_liq3 }} </td>
+                    </tr>
+                    <tr>
+                        <td> <b> Dividend Yeld :</b> {{ d.dividend_yield }} </td>
+                        <td> <b> Dívida Líquida :</b> {{ d.div_liquida }} </td>
+                        <td> <b> EBIT (3 Meses) :</b> {{ d.EBIT3 }} </td>
+                    </tr>
+                    <tr>
+                        <td> <b> VPA :</b> {{ d.VPA }} </td>
+                        <td> <b> Receita Líquida (12 meses) :</b> {{ d.receita_liq12 }} </td>
+                        <td> <b> Lucro Líquido (3 Meses) :</b> {{ d.lucro_liq3 }} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<div class="justify-content-start pt-3 ">
+    <div class="alert alert-danger" role="alert">
+        Nenhum papel foi encontrado !
+    </div>
+</div>
+{% endif %}
+
+<style>
+    li {
+        padding-bottom: 3%;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .input_text_range {
+        text-align: center;
+    }
+
+    .range_dados {
+        widtd: 100%;
+    }
+
+    .float {
+        position: fixed;
+        widtd: 80px;
+        height: 80px;
+        bottom: 40px;
+        right: 40px;
+        background-color: rgba(8, 55, 123);
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    .my-float {
+        margin-top: 22px;
+    }
+</style>
+<script>
+    document.getElementById("pv").value = document.getElementById("myText").valuenum.toFixed(2)
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'filtro_template_main.html' %}
+
+{% block body %}
+
+<div class="d-flex justify-content-start pt-3 pb-6 mb-3">
+    <h1 class="h2">Filtros</h1>
+</div>
+
+
+<form action="{% url 'filtro' %}" method="POST" class="needs-validation">
+    {% csrf_token %}
+    <ul>
+        <li>
+            <div class="card_config card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-1.5">
+                            <label for="setor">
+                                <h2>Setor:</h2>
+                            </label>
+                        </div>
+                        <div class="col-4">
+                            <select id="setor" class="form-control" id="setor" name="setor">
+                                <option>Nenhum</option>
+                                {% for setor in setores %}
+                                <option> {{ setor }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-8"></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+
+        {% for d in dados %}
+
+
+        <li>
+            <div class="card_config card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-3">
+                            <h2>{{ d.nome }}</h2>
+                        </div>
+                        <div class="col-8"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="tipo_busca">Tipo de busca: </label>
+                            <select id="inputState" class="form-control" id="tipo_busca" name="{{ d.nome_tag }}_option">
+                                <option>Desativado</option>
+                                <option>Maior</option>
+                                <option>Menor</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="valor">Selecione o valor: </label>
+                            <div class="row">
+                                <input id='valor' name="{{ d.nome_tag }}" type="range"
+                                    class="form-control-range range_dados" value='{{ d.limite_valores.min }}' step="1"
+                                    min='{{ d.limite_valores.min }}' max='{{ d.limite_valores.max }}' id="LPA"
+                                    oninput="{{ d.nome_tag }}_display.value=value"
+                                    onchange="{{ d.nome_tag }}_display.value=value">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="{{ d.nome_tag }}_display">Valor: </label>
+                            <input class='input_text_range' type="text" id="{{ d.nome_tag }}_display"
+                                value='{{ d.limite_valores.min }}' readonly>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+    <button type="submit" class=" float my-float" class="btn btn-primary">Filtrar</button>
+
+
+</form>
+
+<style>
+    li {
+        padding-bottom: 3%;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .input_text_range {
+        text-align: center;
+    }
+
+    .range_dados {
+        width: 100%;
+    }
+
+    .float {
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        bottom: 40px;
+        right: 40px;
+        background-color: rgba(8, 55, 123);
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    .my-float {
+        margin-top: 22px;
+    }
+</style>
+{% endblock %}
